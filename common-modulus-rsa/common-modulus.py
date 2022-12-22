@@ -20,10 +20,10 @@ n = int("AD6DD400CDD68EEC61D7C54B1567E16671D7401EBBA0ABE6B391575F8271EEEAD78ADE1
 C1 = bytes_to_long(b64decode("BzFd4riBUZdFuPCkB3LOh+5iyMImeQ/saFLVD+ca2L8VKSz0+wtTaL55RRpHBAQdl24Fb3XyVg2N9UDcx3slT+vZs7tr03W7oJZxVp3M0ihoCwer3xZNieem8WZQvQvyNP5s5gMT+K6pjB9hDFWWmHzsn7eOYxRJZTIDgxA4k2w="))
 C2 = bytes_to_long(b64decode("jmVRiKyVPy1CHiYLl8fvpsDAhz8rDa/Ug87ZUXZ//rMBKfcJ5MqZnQbyTJZwSNASnQfgel3J/xJsjlnf8LoChzhgT28qSppjMfWtQvR6mar1GA0Ya1VRHkhggX1RUFA4uzL56X5voi0wZEpJITUXubbujDXHjlAfdLC7BvL/5+w="))
 
-#Pour trouver x, si on nous partons du principe que gcd(e1, e2) = 1, alors on peut dire que x est l'inverse modulaire de e1 et e2
+#Pour trouver x, nous partons du principe que gcd(e1, e2) = 1, nous pouvons donc dire que x est l'inverse modulaire de e1 et e2
 x = inverse(e1, e2)
 
-#(e1*a) + (e2*b) = gcd(e1, e2)
+#(e1*x) + (e2*y) = gcd(e1, e2)
 #Maintenant que nous connaissons x, nous n'avons plus qu'à trouver y (en changeant les valeurs de la formule ci-dessus)
 y = int((math.gcd(e1,e2) - e1 * x) / e2)
 
@@ -31,7 +31,7 @@ y = int((math.gcd(e1,e2) - e1 * x) / e2)
 i = inverse(C2, n)
 
 #On calcul le message en utilisant la formule suivante: M = (C1^x * i^-y) % n
-M = (pow(C1,x,n)*pow(i,-y,n)) % n # 
+M = (pow(C1,x,n)*pow(i,-y,n)) % n  
 
 PlainText = hex(M)[2:]
 print(unhexlify(PlainText))
