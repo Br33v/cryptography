@@ -1,5 +1,5 @@
 #############################################
-# Autor: @Br33v
+# Author: @Br33v
 # Date: 22 dec. 2022
 #Source: https://infosecwriteups.com/rsa-attacks-common-modulus-7bdb34f331a5 && https://blog.0daylabs.com/2015/01/17/rsa-common-modulus-attack-extended-euclidean-algorithm/
 #############################################
